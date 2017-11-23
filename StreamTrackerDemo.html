@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Stream Tracker demo</title>
+  <script type="text/javascript" src="https://api2.sstrm.net/Stream/SDK/tracking/StreamTracker2.0.min.js"></script>
+  <script type="text/javascript">
+    var myID = {
+      "fbq": [],
+      "ga": []
+    };
+
+    var myTracker = new StreamTracker(myID);
+  </script>
+</head>
+<body>
+  <h1>Stream Tracker demo</h1>
+  
+  <form>
+    <input type="button" value="Submit" onclick="fireAction()" >
+  </form>
+  
+  <script type="text/javascript">
+    function fireAction(){
+      var ourProducts = {
+        "content_ids": [1000],  //產品編號(可多組)
+        "content_type": "product",   //固定值不變
+        "value": 0,   //產品價值(總和)
+        "currency": "TWD"   //幣別
+      } 
+
+      // myTracker.viewContent(ourProducts);
+      // myTracker.addToCart(ourProducts);
+      myTracker.purchase(ourProducts);
+    }
+  </script>
+
+</body>
+</html>
